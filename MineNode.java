@@ -1,5 +1,6 @@
 public class MineNode
 {
+	//a class that store the record information
    String name;
    int sizex, sizey, numOfMine;
    double realTime, time;

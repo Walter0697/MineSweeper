@@ -96,6 +96,7 @@ public class FlagChange extends JFrame
       setVisible(false);
    }
    
+   //set up the close listener
    public class closeListener implements ActionListener
    {
       public void actionPerformed(ActionEvent e)
@@ -107,6 +108,7 @@ public class FlagChange extends JFrame
       }
    }
    
+   //set up the list listener
    public class ListSelection implements ListSelectionListener, ActionListener
    {
       public void valueChanged(ListSelectionEvent e)
@@ -155,6 +157,7 @@ public class FlagChange extends JFrame
       }
    }
    
+   //set up the item listener
    public class ItemListen implements ItemListener
    {
       public void itemStateChanged(ItemEvent e)
@@ -163,6 +166,7 @@ public class FlagChange extends JFrame
       }
    }
    
+   //get image 
    public ImageIcon getImage(int i)
    {
       switch(i)

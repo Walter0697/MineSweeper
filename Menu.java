@@ -101,6 +101,7 @@ public class Menu
       this.frame.setVisible(true);
    }
    
+   // set up the menu listener
    public class MenuListener implements ItemListener
    {
       public void itemStateChanged(ItemEvent e)
@@ -127,6 +128,7 @@ public class Menu
       }
    }
    
+   //change the size of the game
    public void changeSize(int x, int y, int m)
    {
       if (x > 30 || y > 30)
@@ -139,6 +141,7 @@ public class Menu
       }
    }
    
+   //set up listener for different button
    public class ButtonListener implements ActionListener
    {
       public void actionPerformed(ActionEvent e)
@@ -166,16 +169,19 @@ public class Menu
       }
    }
    
+   //add data to the record
    public void addData(String n, int x, int y, int m, double t)
    {
       recordF.addNode(n, x, y, m, t);
    }
    
+   //change the flag image
    public void changeFlag(ImageIcon image)
    {
       s.changeFlag(image);
    }
    
+   //change the flag image
    public void changeAllFlag(ImageIcon image)
    {
       s.changeAllFlag(image);

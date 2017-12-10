@@ -25,6 +25,7 @@ public class ChangeSize extends JFrame
    
    public ChangeSize(Menu m)
    {
+	   //set up everything 
       setTitle("Change Size");
       setSize(300, 400);
       setLayout(new BorderLayout());
@@ -64,6 +65,7 @@ public class ChangeSize extends JFrame
       setVisible(false);
    }
    
+   //set up exit listener
    public class ExitListener implements ActionListener
    {
       public void actionPerformed(ActionEvent e)
@@ -75,10 +77,12 @@ public class ChangeSize extends JFrame
       }
    }
    
+   //set up apply listener
    public class ApplyListener implements ActionListener
    {
       public void actionPerformed(ActionEvent e)
       {
+		  //change the size of the gameboard
          if (e.getSource() == apply)
          {
             int tempx = Integer.parseInt(sizex.getText());

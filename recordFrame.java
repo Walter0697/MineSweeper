@@ -37,6 +37,7 @@ public class recordFrame extends JFrame
    
    public recordFrame()
    {
+	   //set up everything
       setTitle("Personal Record");
       setSize(300, 400);
       setLayout(new BorderLayout());
@@ -114,6 +115,7 @@ public class recordFrame extends JFrame
       setVisible(false);
    }
    
+   //update the text to display
    public void updateText()
    {
       //list = bubbleSort(list);
@@ -144,9 +146,7 @@ public class recordFrame extends JFrame
       }
       return mine;
    }
-   
-   
-   
+   // find the record
    public MineNode findRecord(int type)
    {
       if (type != 4)
@@ -183,6 +183,7 @@ public class recordFrame extends JFrame
       return null;
    }
    
+   //using another way to find the record
    public MineNode findRecord(int x, int y, int num)
    {
       MineNode highest = null;
@@ -206,6 +207,7 @@ public class recordFrame extends JFrame
       return highest;
    }
    
+   //tostring function for the node
    public String NodeToString(MineNode node)
    {
       if (node.sizex == 9 && node.sizey == 9 && node.numOfMine == 10)
@@ -224,6 +226,7 @@ public class recordFrame extends JFrame
              node.numOfMine + ") : " + node.time +"s by " + node.name;
    }
    
+   //add node
    public void addNode(String n, int x, int y, int m, double t) 
    {
       list.add(new MineNode(n, x, y, m, t));
@@ -237,6 +240,7 @@ public class recordFrame extends JFrame
       updateList();
    }
    
+   //sort and then update the string
    public void updateList()
    {
       smallList.sorting(list);
@@ -250,6 +254,7 @@ public class recordFrame extends JFrame
       customeList.updateString();
    }
    
+   //write file to save the record
    public void writeFile() throws IOException
    {
       PrintWriter outfile;
@@ -297,6 +302,7 @@ public class recordFrame extends JFrame
       list = temp;
    }
    
+   //set up the button to make it like a label
    public void setLabelLikeButton(JButton button)
    {
       button.setFocusPainted(false);

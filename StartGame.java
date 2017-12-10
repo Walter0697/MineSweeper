@@ -7,26 +7,34 @@ import java.io.*;
 
 public class StartGame
 {
+	//set up menu and stopwatch
    private Menu m;
    private Stopwatch s;
 
+   //set up the mine number
    private final int MINE = 9;
+   
+   //set up jframe and jpanel
    private JFrame frame;
    private JPanel panel;
    private int n;
    
+   //set up the game board
    private JButton[][] button;
    private boolean[][] isClicked;
    private boolean[][] isFlaged;
    private int[][] table;
    
+   //set up the size of the button
    private int SizeOfButton = 50;
    
+   //set up the length of the game board
    private int lengthx = 9, lengthy = 9;
    private int Sizex = lengthx * SizeOfButton, Sizey = lengthy * SizeOfButton;
    private int numOfMine = 10;
    private int numOfFlag = 0;
    
+   //set up the image 
    private ImageIcon FLAG;
    private ImageIcon LOSS;
    private ImageIcon BLACK;
@@ -36,6 +44,7 @@ public class StartGame
    
    public StartGame()
    {
+	   //set up everything
       s = new Stopwatch();
       frame = new JFrame();
       panel = new JPanel();
@@ -63,6 +72,7 @@ public class StartGame
       //frame.setVisible(true);
    }
    
+   //change the gameboard if the player loss
    public void lossMenu()
    {
       for (int i = 0; i < button.length; i++)
@@ -84,16 +94,19 @@ public class StartGame
       }
    }
    
+   //setter for the menu
    public void setMenu(Menu m)
    {
       this.m = m;  
    }
    
+   //change the flag to the input image
    public void changeFlag(ImageIcon image)
    {
       FLAG = image;
    }
    
+   //change all the flag to the input image
    public void changeAllFlag(ImageIcon image)
    {
       changeFlag(image);
@@ -109,6 +122,7 @@ public class StartGame
       }
    }
    
+   //if the player decides to change the size of the game
    public void changeSize(int i, int j, int m, int size)
    {
       //Reset the basic setting
@@ -139,11 +153,13 @@ public class StartGame
       isStart = false;
    }
    
+   //change the size of the game
    public void changeSize(int i, int j, int m)
    {
       changeSize(i, j, m, 50);
    }
    
+   //set up the game
    public void setUp() 
    {
       for (int i = 0; i < button.length; i++)
@@ -163,6 +179,7 @@ public class StartGame
       }  
    }
    
+   //restart the game
    public void reStart()
    {
       numOfFlag = 0;
@@ -184,6 +201,7 @@ public class StartGame
       isStart = false;
    }
    
+   //check if the player win
    public boolean checkWin()
    {
       for (int i = 0; i < button.length; i++)
@@ -205,6 +223,7 @@ public class StartGame
       return true;
    }
      
+	// set up the mouse listener
    public void setMouseListener(int i, int j) 
    {
       button[i][j].addMouseListener(new MouseAdapter()
@@ -266,6 +285,7 @@ public class StartGame
       );
    }
    
+   //set mine to the random position in the beginning
    public void setMine()
    {
       Random randomNumbers = new Random();
@@ -286,6 +306,7 @@ public class StartGame
       }
    }
    
+   //set up the gameboard
    public void setTable()
    {
       for (int i = 0; i < table.length; i++)
@@ -297,6 +318,7 @@ public class StartGame
       }
    }
    
+   //set the number according to the mine nearby
    public void SetNumber(int x, int y)
    {
       int sum = 0;
@@ -384,6 +406,7 @@ public class StartGame
       table[x][y] = sum;
    }
    
+   //print out the table to the console
    public void printTable()
    {
       for (int i = 0; i < table.length; i++)
@@ -420,6 +443,7 @@ public class StartGame
       }
    }
    */
+   //set up for the button click
    public void ButtonClicked(int i, int j)
    {
       button[i][j].setEnabled(false);
@@ -429,6 +453,7 @@ public class StartGame
       button[i][j].setIcon(null);
       if (table[i][j] == 0)
       {
+		  //check nine nearby position to see if that triggered
          if (i != 0 && j != 0) if (table[i-1][j-1] != MINE) if (!isClicked[i-1][j-1]) ButtonClicked(i-1, j-1);
          if (i != 0 && j != table[0].length-1) if (table[i-1][j+1] != MINE) if (!isClicked[i-1][j+1]) ButtonClicked(i-1, j+1);
          if (i != table.length-1 && j != 0) if (table[i+1][j-1] != MINE) if (!isClicked[i+1][j-1]) ButtonClicked(i+1, j-1);
